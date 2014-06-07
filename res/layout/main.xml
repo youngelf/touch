@@ -7,7 +7,20 @@
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World, FiveThings"
+            android:textSize="24dp"
+            android:text="Call your friend"
+            />
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:text="Select friends"
+            />
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:text=""
             />
 </LinearLayout>
 
