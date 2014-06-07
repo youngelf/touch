@@ -22,6 +22,5 @@ public class FiveThingsTest extends ActivityInstrumentationTestCase2<FiveThings>
     }
 
     public void testPreConditions() {
-        assertEquals(true, true);
     }
 }

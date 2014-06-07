@@ -12,15 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bfad864-cf7f-4f5f-97c0-2f4c79b0fe24" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/eggwall/Touch/data/Friend.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/src/com/eggwall/Touch/data/FriendTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/tests.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/eggwall/Touch/FiveThings.java" afterPath="$PROJECT_DIR$/src/com/eggwall/Touch/ui/FiveThings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/src/com/eggwall/Touch/ui/FiveThingsTest.java" afterPath="$PROJECT_DIR$/tests/src/com/eggwall/Touch/ui/FiveThingsTest.java" />
     </list>
     <ignored path="Touch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -116,7 +108,7 @@
       <file leaf-file-name="FiveThingsTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/src/com/eggwall/Touch/ui/FiveThingsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="59" selection-start="535" selection-end="535" vertical-scroll-proportion="0.35472974" vertical-offset="0" max-vertical-offset="592">
+            <state line="24" column="0" selection-start="802" selection-end="802" vertical-scroll-proportion="0.6081081" vertical-offset="0" max-vertical-offset="592">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -687,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/src/com/eggwall/Touch/ui/FiveThingsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="59" selection-start="535" selection-end="535" vertical-scroll-proportion="0.35472974" vertical-offset="0" max-vertical-offset="592">
+        <state line="24" column="0" selection-start="802" selection-end="802" vertical-scroll-proportion="0.6081081" vertical-offset="0" max-vertical-offset="592">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
