@@ -7,7 +7,7 @@ import android.util.Log;
 import java.util.List;
 
 /**
- * Created by viki on 6/6/14.
+ * Test out the friend class and its database interaction.
  */
 public class FriendTest extends InstrumentationTestCase {
 
@@ -34,5 +34,12 @@ public class FriendTest extends InstrumentationTestCase {
         }
     }
 
+    public void testUpdate() {
+        List<Friend> v = mHelper.lookup();
+        assertTrue(v != null && v.size() > 0);
+        Friend one = v.get(0);
+        Friend updatedOne = new Friend(one.ID, "Strange name", one.CALL_FREQUENCY, one.DAYS_TO_CALL);
+        assertTrue(mHelper.update(updatedOne));
+    }
 
 }
