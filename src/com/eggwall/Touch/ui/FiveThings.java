@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.eggwall.Touch.R;
+import com.eggwall.Touch.data.Friend;
+import com.eggwall.Touch.data.FriendDbHelper;
 
 /*
  * TODO(viki) Show a list of people from the contact list
@@ -26,12 +28,7 @@ public class FiveThings extends Activity {
 
         setContentView(R.layout.main);
 
-//        Read the storage and find out what is the best thing to do right now.
-        SharedPreferences m = getSharedPreferences("mainPrefs", MODE_PRIVATE);
-        String friends = m.getString(KEY_FRIENDS, "");
-        String[] friendList = friends.split(FRIENDS_SEPARATOR);
-
-        // Each friend has two fields, their name and how frequently you want to call them.
-
+        FriendDbHelper helper = new FriendDbHelper(this);
+        helper.insertFriend(new Friend("First", 60, 1));
     }
 }
