@@ -1,6 +1,5 @@
 package com.eggwall.Touch.data;
 
-
 import android.test.InstrumentationTestCase;
 import android.util.Log;
 
@@ -9,13 +8,14 @@ import java.util.List;
 /**
  * Test out the friend class and its database interaction.
  */
-public class FriendTest extends InstrumentationTestCase {
+public class FriendDbTest extends InstrumentationTestCase {
 
     private static final Friend first =
             new Friend(1, "First person", 60, 1);
 
     private FriendDbHelper mHelper;
-    public FriendTest() {
+
+    public FriendDbTest() {
     }
 
     @Override
@@ -30,7 +30,7 @@ public class FriendTest extends InstrumentationTestCase {
         // Anything non-null is good.
         assertTrue(v != null && v.size() > 0);
         for (final Friend f : v) {
-            Log.d("FriendTest", "Got friend " + f);
+            Log.d("FriendDbTest", "Got friend " + f);
         }
     }
 
@@ -41,5 +41,4 @@ public class FriendTest extends InstrumentationTestCase {
         Friend updatedOne = new Friend(one.ID, "Strange name", one.CALL_FREQUENCY, one.DAYS_TO_CALL);
         assertTrue(mHelper.update(updatedOne));
     }
-
 }
