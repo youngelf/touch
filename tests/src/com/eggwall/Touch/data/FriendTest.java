@@ -2,6 +2,7 @@ package com.eggwall.Touch.data;
 
 
 import android.test.InstrumentationTestCase;
+import android.util.Log;
 
 import java.util.List;
 
@@ -10,23 +11,28 @@ import java.util.List;
  */
 public class FriendTest extends InstrumentationTestCase {
 
-    private final Friend first = new Friend("First", 2*30, 1);
-    private final Friend second = new Friend("Second", 3*30, 2);
+    private static final Friend first =
+            new Friend(1, "First person", 60, 1);
 
+    private FriendDbHelper mHelper;
     public FriendTest() {
     }
 
-    public void testSingleSerialization() {
-        String serial = first.serialize();
-        List<Friend> collection = Friend.deSerialize(serial);
-        assertTrue(collection != null && collection.size() == 1);
-        assertTrue(collection.get(0).equals(first));
+    @Override
+    protected void setUp() throws Exception {
+        mHelper = new FriendDbHelper(getInstrumentation().getTargetContext());
+        super.setUp();
     }
 
-    public void testListSerialization() {
-        String serial = first.serialize();
-        List<Friend> collection = Friend.deSerialize(serial);
-        assertTrue(collection != null && collection.size() == 1);
-        assertTrue(collection.get(0).equals(first));
+    public void testLookup() {
+        // Store something in the database and expect it is there.
+        List<Friend> v = mHelper.lookup();
+        // Anything non-null is good.
+        assertTrue(v != null && v.size() > 0);
+        for (final Friend f : v) {
+            Log.d("FriendTest", "Got friend " + f);
+        }
     }
+
+
 }

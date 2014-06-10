@@ -29,7 +29,7 @@ public class FriendDbHelper extends SQLiteOpenHelper {
     private static final String COL_LAST_CALLED = "last";
 
     private static final String[] ALL_COLUMNS = {
-            COL_NAME, COL_FREQ, COL_LAST_CALLED
+            COL_ID, COL_NAME, COL_FREQ, COL_LAST_CALLED
     };
 
     public FriendDbHelper(Context context) {
@@ -71,19 +71,32 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         }
         ArrayList<Friend> r = new ArrayList<Friend>(q.getCount());
         do {
+            int id = q.getInt(0);
             String name = q.getString(1);
             int freq = q.getInt(2);
             int lastCalled = q.getInt(3);
-            r.add(new Friend(name, freq, lastCalled));
+            r.add(new Friend(id, name, freq, lastCalled));
         } while (q.moveToNext());
         db.close();
         return r;
     }
 
-    public void store(List<Friend> update) {
-        // Store to disk here.
-
+    /**
+     * Update the database with the friend provided here.
+     */
+    public boolean update(Friend friend) {
+        ContentValues v = new ContentValues();
+        v.put(COL_NAME, friend.NAME);
+        v.put(COL_FREQ, friend.CALL_FREQUENCY);
+        v.put(COL_LAST_CALLED, friend.DAYS_TO_CALL);
+        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) return false;
+        int numRows = db.update(TABLE_FRIEND, v,
+                COL_ID + " = ?", new String[]{friend.ID + ""});
+        // We wanted to impact a single row.
+        return 1 == numRows;
     }
+
     /**
      * Insert the given friend into the database.
      * @param friend

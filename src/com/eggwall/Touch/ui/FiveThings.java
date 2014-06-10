@@ -29,6 +29,6 @@ public class FiveThings extends Activity {
         setContentView(R.layout.main);
 
         FriendDbHelper helper = new FriendDbHelper(this);
-        helper.insertFriend(new Friend("First", 60, 1));
+        helper.insertFriend(new Friend(1, "First", 60, 1));
     }
 }
