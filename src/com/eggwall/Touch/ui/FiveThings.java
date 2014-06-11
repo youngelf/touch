@@ -8,6 +8,11 @@ import com.eggwall.Touch.data.Friend;
 import com.eggwall.Touch.data.FriendDbHelper;
 
 /*
+ * TODO(viki) Enter names somehow as a first cut.
+   TODO(viki) Then test out calling a person. Mark the person as called.
+   TODO(viki) Allow emailing someone a quick response with a trigger text.
+
+
  * TODO(viki) Show a list of people from the contact list
  * TODO(viki) Allow selecting people from the list and remember them.
  * TODO(viki) Prompt to allow calling someone
