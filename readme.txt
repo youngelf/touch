@@ -6,3 +6,4 @@ Spanner:
 http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Actions-configure-icon.html
 
 Both are free for use.
+

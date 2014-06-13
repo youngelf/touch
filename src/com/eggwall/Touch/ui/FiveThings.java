@@ -1,11 +1,13 @@
 package com.eggwall.Touch.ui;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import com.eggwall.Touch.control.CloseLogic;
 import com.eggwall.Touch.R;
 import com.eggwall.Touch.data.Friend;
 import com.eggwall.Touch.data.FriendDbHelper;
+
+import java.util.List;
 
 /*
  * TODO(viki) Enter names somehow as a first cut.
@@ -34,6 +36,11 @@ public class FiveThings extends Activity {
         setContentView(R.layout.main);
 
         FriendDbHelper helper = new FriendDbHelper(this);
-        helper.insertFriend(new Friend(1, "First", 60, 1));
+//        Get a list of all friends.
+        List<Friend> allFriends = helper.lookup();
+//        Find the top five that you can contact
+        List<Friend> toContact = CloseLogic.findBest(allFriends);
+//        Show these options to the user.
+        
     }
 }

@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class FriendDbHelper extends SQLiteOpenHelper {
 // TODO(viki) Turn this into a Content Provider.
+// Perhaps not required?
 
     /** The current version of the database */
     public static final int VERSION = 1;
