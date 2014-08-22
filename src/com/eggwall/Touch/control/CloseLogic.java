@@ -1,6 +1,8 @@
 package com.eggwall.Touch.control;
 
 import com.eggwall.Touch.data.Friend;
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,15 +19,17 @@ public class CloseLogic {
      */
     public static List<Friend> findBest(List<Friend> list) {
         ArrayList<Friend> best = new ArrayList<Friend>(5);
+        DateTime now = DateTime.now();
         // Go through the list and find the people you haven't contacted
         // that you should have. Put them in the list.
         for (final Friend f : list) {
             // Haven't contacted this person for a while, add them.
-            if (f.DAYS_TO_CALL < f.CALL_FREQUENCY) {
+            if (Days.daysBetween(f.LAST_CALLED, now).getDays() > f.CALL_FREQUENCY) {
                 // Allow the user to deselect this person or turn down
                 // the call frequency.
                 best.add(f);
             }
+            // TODO(viki) Need some notion of ranking to pick out the best.
             if (best.size() == 5) {
                 break;
             }

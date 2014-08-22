@@ -37,6 +37,11 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, VERSION);
     }
 
+    /** Testing only, create a test database. */
+    public FriendDbHelper(Context context, String dbName){
+        super(context, dbName, null, VERSION);
+    }
+
     /**
      * The database was just created, so make one.
      * @param db
@@ -47,7 +52,7 @@ public class FriendDbHelper extends SQLiteOpenHelper {
                 + COL_ID + " integer primary key autoincrement"
                 + ", " + COL_NAME + " string not null"
                 + ", " + COL_FREQ + " integer not null"
-                + ", " + COL_LAST_CALLED + " integer not null"
+                + ", " + COL_LAST_CALLED + " string not null"
                 + ")"
         );
     }
@@ -75,7 +80,7 @@ public class FriendDbHelper extends SQLiteOpenHelper {
             int id = q.getInt(0);
             String name = q.getString(1);
             int freq = q.getInt(2);
-            int lastCalled = q.getInt(3);
+            String lastCalled = q.getString(3);
             r.add(new Friend(id, name, freq, lastCalled));
         } while (q.moveToNext());
         db.close();
@@ -89,7 +94,7 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         ContentValues v = new ContentValues();
         v.put(COL_NAME, friend.NAME);
         v.put(COL_FREQ, friend.CALL_FREQUENCY);
-        v.put(COL_LAST_CALLED, friend.DAYS_TO_CALL);
+        v.put(COL_LAST_CALLED, friend.lastCalled());
         SQLiteDatabase db = getWritableDatabase();
         if (db == null) return false;
         int numRows = db.update(TABLE_FRIEND, v,
@@ -107,7 +112,19 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         ContentValues v = new ContentValues();
         v.put(COL_NAME, friend.NAME);
         v.put(COL_FREQ, friend.CALL_FREQUENCY);
-        v.put(COL_LAST_CALLED, friend.DAYS_TO_CALL);
+        v.put(COL_LAST_CALLED, friend.lastCalled());
         return getWritableDatabase().insert(TABLE_FRIEND, null, v);
+    }
+
+    /**
+     * Delete the friend provided here
+     * @param friend to delete
+     * @return true if a friend was deleted, false otherwise.
+     */
+    public boolean deleteFriend(Friend friend) {
+        // Delete just a single friend.
+        return getWritableDatabase().delete(TABLE_FRIEND,
+                COL_ID + " = ?",
+                new String[]{friend.ID + ""}) == 1;
     }
 }

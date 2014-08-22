@@ -9,12 +9,14 @@
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:text="Call your friends"
+            android:onClick="callFriends"
             />
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:text="Select friends"
+            android:onClick="selectFriends"
             />
     <TextView
             android:layout_width="fill_parent"
