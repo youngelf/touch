@@ -9,6 +9,7 @@
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:text="Call your friends"
+            android:clickable="true"
             android:onClick="callFriends"
             />
     <TextView
@@ -16,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:text="Select friends"
+            android:clickable="true"
             android:onClick="selectFriends"
             />
     <TextView
